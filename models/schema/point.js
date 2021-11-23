@@ -9,11 +9,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     UserId: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     OrderId: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     points: {
       type: DataTypes.INTEGER,

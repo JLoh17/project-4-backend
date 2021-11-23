@@ -17,11 +17,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: false
     },
     passwordHash: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: false
     },
     address: {
       type: DataTypes.STRING(255),
@@ -33,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     isAdmin: {
       type: DataTypes.BOOLEAN,
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

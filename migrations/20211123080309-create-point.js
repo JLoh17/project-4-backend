@@ -9,12 +9,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       UserId: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       OrderId: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       points: {
+        allowNull: true,
         type: Sequelize.INTEGER
       },
       createdAt: {

@@ -9,12 +9,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       productName: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(500)
       },
       price: {
+        allowNull: false,
         type: Sequelize.FLOAT
       },
       CategoryId: {

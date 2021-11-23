@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     productName: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: false
     },
     description: {
       type: DataTypes.STRING(500),
@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     price: {
       type: DataTypes.DOUBLE,
-      allowNull: true
+      allowNull: false
     },
     CategoryId: {
       type: DataTypes.INTEGER,

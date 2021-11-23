@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       imageURL: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(500)
       },
       ProductId: {
         type: Sequelize.INTEGER
