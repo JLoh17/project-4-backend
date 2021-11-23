@@ -5,7 +5,8 @@ const WishlistSchema = require('./schema/wishlist')
 module.exports = (sequelize, DataTypes) => {
   class Wishlist extends Model {
     static associate(models) {
-      // define association here
+      Wishlist.User = this.belongsTo(models.User)
+      Wishlist.Product = this.belongsTo(models.Product)
     }
   };
 

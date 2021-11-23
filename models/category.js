@@ -5,7 +5,7 @@ const CategorySchema = require('./schema/category')
 module.exports = (sequelize, DataTypes) => {
   class Category extends Model {
     static associate(models) {
-      // define association here
+      Category.Products = this.hasMany(models.Product)
     }
   };
 

@@ -5,7 +5,8 @@ const OrderProductSchema = require('./schema/order_product')
 module.exports = (sequelize, DataTypes) => {
   class OrderProduct extends Model {
     static associate(models) {
-      // define association here
+      OrderProduct.Product = this.belongsTo(models.Product)
+      OrderProduct.Order = this.belongsTo(models.Order)
     }
   };
 

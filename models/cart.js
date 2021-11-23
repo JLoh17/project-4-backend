@@ -6,7 +6,8 @@ const { CartSchema } = require('./schema/cart')
 module.exports = (sequelize, DataTypes) => {
   class Cart extends Model {
     static associate(models) {
-      // define association here
+      Cart.User = this.belongsTo(models.User)
+      Cart.Product = this.belongsTo(models.Product)
     }
   };
 const { tableAttributes } = CartSchema (sequelize, DataTypes)

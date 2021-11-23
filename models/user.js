@@ -5,7 +5,13 @@ const UserSchema = require('./schema/user')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // define association here
+      User.Orders = this.hasMany(models.Order)
+      User.AuthenticityTokens = this.hasMany(models.AuthenticityToken)
+      User.Carts = this.hasMany(models.Cart)
+      User.Products = this.belongsToMany(models.Product, { through: 'Cart'})
+      User.Points = this.hasMany(models.Point)
+      User.Wishlists = this.hasMany(models.Wishlist)
+      User.Products = this.belongsToMany(models.Product, { through: 'Wishlist'})
     }
   };
 

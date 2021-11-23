@@ -5,7 +5,8 @@ const PointSchema = require('./schema/point')
 module.exports = (sequelize, DataTypes) => {
   class Point extends Model {
     static associate(models) {
-      // define association here
+      Point.User = this.belongsTo(models.User)
+      Point.Order = this.belongsTo(models.Order)
     }
   };
 

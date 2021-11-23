@@ -5,7 +5,7 @@ const ImageSchema = require('./schema/image')
 module.exports = (sequelize, DataTypes) => {
   class Image extends Model {
     static associate(models) {
-      // define association here
+      Image.Product = this.belongsTo(models.Product)
     }
   };
 

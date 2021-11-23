@@ -5,7 +5,10 @@ const OrderSchema = require ('./schema/order')
 module.exports = (sequelize, DataTypes) => {
   class Order extends Model {
     static associate(models) {
-      // define association here
+      Order.User = this.belongsTo(models.User)
+      Order.OrderProducts = this.hasMany(models.OrderProduct)
+      Order.Products = this.belongsToMany(models.Product, {through: 'OrderProduct'})
+      Order.Points = this.hasMany(models.Point)
     }
   };
 

@@ -5,7 +5,7 @@ const { AuthenticityTokenSchema } = require('./schema/authenticity_token')
 module.exports = (sequelize, DataTypes) => {
   class AuthenticityToken extends Model {
     static associate(models) {
-      // define association here
+      AuthenticityToken.User = this.belongsTo(models.User)
     }
   };
   const { tableAttributes } = AuthenticityTokenSchema(sequelize,DataTypes)
