@@ -1,25 +1,19 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
+const OrderProductSchema = require('./schema/order_product')
+
 module.exports = (sequelize, DataTypes) => {
   class OrderProduct extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
       // define association here
     }
   };
-  OrderProduct.init({
-    OrderId: DataTypes.INTEGER,
-    ProductId: DataTypes.INTEGER,
-    quantity: DataTypes.INTEGER
-  }, {
+
+  const { tableAttributes } = OrderProductSchema (sequelize, DataTypes)
+  OrderProduct.init(tableAttributes, {
     sequelize,
     modelName: 'OrderProduct',
   });
+
   return OrderProduct;
 };

@@ -1,29 +1,19 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
+const ProductSchema = require('./schema/product')
+
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
       // define association here
     }
   };
-  Product.init({
-    productName: DataTypes.STRING,
-    description: DataTypes.STRING,
-    price: DataTypes.FLOAT,
-    CategoryId: DataTypes.INTEGER,
-    isDisabled: DataTypes.BOOLEAN,
-    isNew: DataTypes.BOOLEAN,
-    isFeature: DataTypes.BOOLEAN
-  }, {
+
+  const { tableAttributes } = ProductSchema (sequelize, DataTypes)
+  Product.init(tableAttributes, {
     sequelize,
     modelName: 'Product',
   });
+
   return Product;
 };
