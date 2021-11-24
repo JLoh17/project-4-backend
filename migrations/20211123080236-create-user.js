@@ -18,7 +18,8 @@ module.exports = {
       },
       email: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true,
       },
       passwordHash: {
         allowNull: false,
@@ -34,7 +35,9 @@ module.exports = {
       },
       isAdmin: {
         allowNull: false,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+
       },
       createdAt: {
         allowNull: false,

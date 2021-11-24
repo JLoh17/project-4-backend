@@ -1,6 +1,10 @@
 const { Router } = require('express')
 const router = Router()
 
+const { getUserByToken } = require('./controllers/_helpers')
+
+router.use(getUserByToken)
+
 // Auth
 router.post('/api/auth/signup', require('./controllers/api/auth/signup'))
 router.post('/api/auth/login', require('./controllers/api/auth/login'))
@@ -24,7 +28,7 @@ router.delete('/api/auth/logout', require('./controllers/api/auth/logout'))
 // router.delete('/api/my/cart/:id', require('./controllers/api/my/cart/destroy'))
 
 // My Profile's Order History
-// router.get('/api/my/profile', require('./controllers/api/my/profile/show'))
+router.get('/api/my/profile', require('./controllers/api/my/profile/show')) // need this to make sure no logout on refresh
 // router.put('/api/my/profile', require('./controllers/api/my/profile/update'))
 // router.get('/api/my/profile/balance', require('./controllers/api/my/profile/balance'))
 

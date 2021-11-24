@@ -6,9 +6,11 @@ const { body } = require('express-validator')
 const { User } = require('../../../models')
 const { checkValidation } = require('../../_helpers')
 
-const permittedSignupParams = ['email', 'passwordHash']
+const permittedSignupParams = ['firstName', 'email', 'passwordHash']
 
 const validation = [
+  body('firstName')
+    .notEmpty().withMessage('First name is Required'),
   body('email')
     .notEmpty().withMessage('Email is Required')
     .isEmail().withMessage('Email must be valid')

@@ -17,7 +17,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
       type: DataTypes.STRING(255),
-      allowNull: false
+      allowNull: false,
+      unique: "Users_email_key" // set as unique: true in migrations
     },
     passwordHash: {
       type: DataTypes.STRING(255),
@@ -33,7 +34,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     isAdmin: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: false,
+      defaultValue: false
     }
   }, {
     sequelize,
@@ -41,6 +43,13 @@ module.exports = function(sequelize, DataTypes) {
     schema: 'public',
     timestamps: true,
     indexes: [
+      {
+        name: "Users_email_key",
+        unique: true,
+        fields: [
+          { name: "email" },
+        ]
+      },
       {
         name: "Users_pkey",
         unique: true,
