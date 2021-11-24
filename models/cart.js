@@ -1,6 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
-const { CartSchema } = require('./schema/cart')
+const CartSchema = require('./schema/cart')
 
 
 module.exports = (sequelize, DataTypes) => {
