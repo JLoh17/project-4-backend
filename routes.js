@@ -11,7 +11,7 @@ router.post('/api/auth/login', require('./controllers/api/auth/login'))
 router.delete('/api/auth/logout', require('./controllers/api/auth/logout'))
 
 // Public products
-// router.get('/api/products', require('./controllers/api/products')) // no need to write index if already in the path
+router.get('/api/products', require('./controllers/api/products'))
 // router.get('/api/products/:id', require('./controllers/api/products/show'))
 
 // My orders - for payment
