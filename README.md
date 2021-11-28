@@ -1,6 +1,6 @@
 # Instructions
-- Clone and rename folder `$ git clone git@github.com:dented-academy/express-api-starter.git your_project_name_here`
-- Find and rename all instance of `your_project_name_here` to your project name
+- Clone and rename folder `$ git clone git@github.com:dented-academy/express-api-starter.git project-4-backend`
+- Find and rename all instance of `project-4-backend` to your project name
 - Create a `.env` file you need to change `CORS_ORIGIN` if you UI is not `localhost:8080`
   ```txt
   COOKIE_SECRET=put_something_random_here
