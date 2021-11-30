@@ -1,6 +1,7 @@
 const { Op } = require("sequelize");
 const { Product, Category } = require('../../../models')
 
+// /api/products?isFeatured=true
 const pageProductsIndex = async function (req, res) {
   const { query } = req
 
@@ -10,6 +11,8 @@ const pageProductsIndex = async function (req, res) {
   const limit = 12
   const offset = (page - 1 ) * limit
   const CategoryId = Number(query.category) || 0
+  const isFeature = query.isFeature || ''
+  const isNew = query.isNew || ''
 
   // let order = []
   // if (sort === 'productName') {
@@ -25,11 +28,20 @@ const pageProductsIndex = async function (req, res) {
       [Op.iLike]: `%${q}%`
     }
   }
+
   let catName = ''
   if (CategoryId > 0) {
     where.CategoryId = CategoryId
     const category = await Category.findByPk(CategoryId)
     catName = category.catName
+  }
+
+  if (isFeature) {
+    where.isFeature = true // this gets added to the where query above
+  }
+
+  if (isNew) {
+    where.isNew = true
   }
 
   const results = await Product.findAndCountAll({
