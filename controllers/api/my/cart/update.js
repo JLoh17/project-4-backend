@@ -1,4 +1,4 @@
-const { Cart } = require('../../../../models')
+const { Cart, Product } = require('../../../../models')
 
 const cartUpdate = async function (req, res) {
   const { params: { id }, body } = req
@@ -6,7 +6,16 @@ const cartUpdate = async function (req, res) {
   const cart = await Cart.findOne({
     where: {
       id: Number(id) || 0
-    }
+    },
+    include: [
+      {
+        association: Cart.Product,
+        include: {
+          association: Product.Images
+        }
+      },
+      { association: Cart.User }
+    ]
   })
 
   if (!cart) {

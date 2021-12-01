@@ -25,7 +25,7 @@ router.get('/api/products/:id', require('./controllers/api/products/show'))
 router.get('/api/my/cart', require('./controllers/api/my/cart')) // myCart index
 router.post('/api/my/cart', require('./controllers/api/my/cart/create')) // adding to cart
 router.put('/api/my/cart/:id', require('./controllers/api/my/cart/update'))
-// router.delete('/api/my/cart/:id', require('./controllers/api/my/cart/destroy'))
+router.delete('/api/my/cart/:id', require('./controllers/api/my/cart/destroy'))
 
 // My Profile's Order History
 router.get('/api/my/profile', require('./controllers/api/my/profile/show'))
