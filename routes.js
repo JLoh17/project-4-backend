@@ -22,13 +22,13 @@ router.get('/api/products/:id', require('./controllers/api/products/show'))
 // router.put('/api/my/orders/:id/pay', require('./controllers/api/my/orders/pay'))
 
 // Cart item - adding items to cart
-// router.get('/api/my/cart', require('./controllers/api/my/cart'))
-// router.post('/api/my/cart', require('./controllers/api/my/cart/create'))
-// router.put('/api/my/cart/:id', require('./controllers/api/my/cart/update'))
+router.get('/api/my/cart', require('./controllers/api/my/cart')) // myCart index
+router.post('/api/my/cart', require('./controllers/api/my/cart/create')) // adding to cart
+router.put('/api/my/cart/:id', require('./controllers/api/my/cart/update'))
 // router.delete('/api/my/cart/:id', require('./controllers/api/my/cart/destroy'))
 
 // My Profile's Order History
-router.get('/api/my/profile', require('./controllers/api/my/profile/show')) // need this to make sure no logout on refresh
+router.get('/api/my/profile', require('./controllers/api/my/profile/show'))
 // router.put('/api/my/profile', require('./controllers/api/my/profile/update'))
 // router.get('/api/my/profile/balance', require('./controllers/api/my/profile/balance'))
 
