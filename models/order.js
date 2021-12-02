@@ -8,12 +8,28 @@ module.exports = (sequelize, DataTypes) => {
       Order.User = this.belongsTo(models.User)
       Order.OrderProducts = this.hasMany(models.OrderProduct)
       Order.Products = this.belongsToMany(models.Product, {through: 'OrderProduct'})
-      Order.Points = this.hasMany(models.Point)
+      Order.Point = this.hasOne(models.Point)
     }
   };
 
   const { tableAttributes } = OrderSchema (sequelize, DataTypes)
   Order.init(tableAttributes, {
+    hooks: {
+      afterSave: async (instance) => {
+        if (instance._options.isNewRecord) {
+          const user = await instance.getUser()
+          await user.createPoint({
+            OrderId: instance.id,
+            points: instance.points
+          })
+        }
+
+        if (instance.status === 'Canceled') {
+          const point = await instance.getPoint()
+          await point.destroy()
+        }
+      }
+    },
     sequelize,
     modelName: 'Order',
   });

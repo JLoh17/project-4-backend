@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: true
-    }
+    },
   }, {
     sequelize,
     tableName: 'Carts',
