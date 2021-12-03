@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
           const user = await instance.getUser()
           await user.createPoint({
             OrderId: instance.id,
+            // points: instance.pointsGain - instance.pointsUsed
             points: instance.points
           })
         }

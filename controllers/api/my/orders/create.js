@@ -31,7 +31,7 @@ const apiCreateNewOrderProduct = async function(req, res) {
     UserId: currentUser.id,
     OrderProducts: carts
   }, {
-    includes: {
+    include: {
       association: Order.OrderProducts
     }
   })
