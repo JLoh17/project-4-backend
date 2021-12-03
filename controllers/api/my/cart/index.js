@@ -13,9 +13,6 @@ const apiCartIndex = async function (req, res) {
       {
         association: Cart.Product,
         include: Product.Images,
-      }, {
-        association: Cart.User,
-        include: User.Points,
       }
     ]
   })
