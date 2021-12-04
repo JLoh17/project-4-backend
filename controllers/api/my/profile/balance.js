@@ -21,11 +21,11 @@ const pagePointsIndex = async function (req, res) {
     ],
     limit,
     offset,
-    // include: [ // use [] if on the same line
-    //   {
-    //     association: Point.Order
-    //   }
-    // ]
+    include: [ // use [] if on the same line
+      {
+        association: Point.Order
+      }
+    ]
   })
 
   res.status(200).json({

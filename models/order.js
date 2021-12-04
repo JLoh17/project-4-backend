@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
           })
         }
 
-        if (instance.status === 'Canceled') {
+        if (instance.status === 'Cancelled') {
           const point = await instance.getPoint()
           await point.destroy()
         }
