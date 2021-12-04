@@ -30,7 +30,7 @@ router.delete('/api/my/cart/:id', require('./controllers/api/my/cart/destroy'))
 // My Profile's Order History
 router.get('/api/my/profile', require('./controllers/api/my/profile/show'))
 // router.put('/api/my/profile', require('./controllers/api/my/profile/update'))
-// router.get('/api/my/profile/balance', require('./controllers/api/my/profile/balance'))
+router.get('/api/my/profile/balance', require('./controllers/api/my/profile/balance'))
 
 
 // Admin Orders
