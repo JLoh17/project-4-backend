@@ -4,5 +4,8 @@ module.exports = {
   checkValidation: require('./check-validation'),
   cart: {
     getCartByID: require('./my/cart/get-cart-by-id')
+  },
+  product: {
+    getProductByID: require('./my/admin/product/get-order-by-id')
   }
 }

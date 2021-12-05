@@ -36,9 +36,15 @@ router.get('/api/my/profile/balance', require('./controllers/api/my/profile/bala
 // Admin Orders
 router.get('/api/admin/orders', require('./controllers/api/admin/orders'))
 router.put('/api/admin/orders/:id', require('./controllers/api/admin/orders/update'))
-// router.get('/api/admin/products', require('./controllers/api/admin/products'))
 // router.post('/api/admin/products', require('./controllers/api/admin/products/create'))
 // router.delete('/api/admin/products/:id', require('./controllers/api/admin/products/destroy'))
+
+// Admin Product
+router.get('/api/admin/products', require('./controllers/api/admin/products'))
+router.post('/api/admin/products', require('./controllers/api/admin/products/create'))
+router.delete('/api/admin/products/:id', require('./controllers/api/admin/products/destroy'))
+
+
 
 
 // Error Response
