@@ -1,5 +1,6 @@
 const { authenticateCurrentUserByToken } = require('../../../_helpers')
 
+
 const { Point } = require('../../../../models')
 
 const pagePointsIndex = async function (req, res) {

@@ -1,6 +1,4 @@
-const { body } = require('express-validator')
 const multer = require('multer')
-
 
 const { authenticateCurrentUserByToken, checkValidation } = require('../../../_helpers')
 const { Product } = require('../../../../models')
@@ -13,8 +11,7 @@ const permittedParams = [
   'isNew',
   'isFeatured',
   'isDisabled',
-  'imageURL'
-  // 'Image',
+  'Images.*.imageURL' // * is an array
 ]
 
 // const validation = [
@@ -50,6 +47,18 @@ const apiProductCreate = async function(req, res) {
       association: Product.Images,
     },
   })
+
+  // Another way of doing it
+  // const newProduct = await Product.create(productParams, {
+  //   fields: permittedParams
+  // })
+
+  // const length = productParams?.Images?.length || 0
+  // for (let i = 0; i < length; i++) {
+  //   const image = productParams?.Images[i]
+
+  //   await newProduct.createImage(image)
+  // }
 
   res.json({ message: 'Product created'})
 }

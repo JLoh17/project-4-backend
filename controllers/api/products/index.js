@@ -6,7 +6,7 @@ const pageProductsIndex = async function (req, res) {
   const { query } = req
 
   const q = query.q || ''
-  const sort = query.sort || "createdAt"
+  // const sort = query.sort || "createdAt"
   const page = Number(query.page) || 1
   const limit = 12
   const offset = (page - 1 ) * limit
@@ -46,7 +46,9 @@ const pageProductsIndex = async function (req, res) {
 
   const results = await Product.findAndCountAll({
     where,
-    // order,
+    order: [
+      ['createdAt', 'DESC']
+    ],
     limit,
     offset,
     include: [ // use [] if on the same line
