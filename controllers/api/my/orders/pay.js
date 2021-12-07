@@ -2,7 +2,21 @@ const stripe = require('stripe')('sk_test_51K3KFzCuNAS6x1wu9AbtiH1rQ8ZHCj0gvGBQz
 const { Order, OrderProduct } = require('../../../../models')
 
 const orderUpdate = async function (req, res) {
+  // Find the order first
+  const { params: { id }, body: { pointsUsed, ...values } } = req
+  const order = await Order.findOne({
+    where: { id: Number(id) || 0 },
+    include: {
+      association: Order.OrderProducts,
+      include: {
+        association: OrderProduct.Product
+      }
+    }
+  })
+  if (!order) return res.status(404).json({ message: `Order ID ${id} not found!` })
+
   // Going to the payment page
+  // This is done first because we need to save the stripeId in the orders
   const lineItems = order.OrderProducts.map((item) => ({
     quantity: item.quantity,
     price_data: {
@@ -28,22 +42,10 @@ const orderUpdate = async function (req, res) {
   });
 
   // Saving the order
-  const { params: { id }, body: { pointsUsed, ...values } } = req
-
-  const order = await Order.findOne({
-    where: { id: Number(id) || 0 },
-    include: {
-      association: Order.OrderProducts,
-      include: {
-        association: OrderProduct.Product
-      }
-    }
-  })
-  if (!order) return res.status(404).json({ message: `Order ID ${id} not found!` })
-
   await order.update({
     ...values,
-    // stripeId: session.id
+    status: 'Pending Delivery',
+    stripeId: session.id
   })
 
   res.status(200).json(session);
