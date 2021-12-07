@@ -11,7 +11,9 @@ const permittedParams = [
   'isNew',
   'isFeatured',
   'isDisabled',
-  'Images.*.imageURL' // * is an array
+  'Images.*.imageURL', // * is an array
+  'Images.*.imageURL2', // * is an array
+  'Images.*.imageURL3', // * is an array
 ]
 
 // const validation = [
@@ -60,7 +62,7 @@ const apiProductCreate = async function(req, res) {
   //   await newProduct.createImage(image)
   // }
 
-  res.json({ message: 'Product created'})
+  res.json({ product: newProduct })
 }
 
 module.exports = [

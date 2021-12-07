@@ -19,7 +19,7 @@ router.get('/api/my/orders', require('./controllers/api/my/orders'))
 router.post('/api/my/orders', require('./controllers/api/my/orders/create'))
 router.delete('/api/my/orders/:id', require('./controllers/api/my/orders/destroy'))
 router.get('/api/my/orders/:id', require('./controllers/api/my/orders/show'))
-// router.put('/api/my/orders/:id/pay', require('./controllers/api/my/orders/pay'))
+router.put('/api/my/orders/:id/pay', require('./controllers/api/my/orders/pay'))
 
 // Cart item - adding items to cart
 router.get('/api/my/cart', require('./controllers/api/my/cart')) // myCart index
@@ -43,9 +43,6 @@ router.put('/api/admin/orders/:id', require('./controllers/api/admin/orders/upda
 router.get('/api/admin/products', require('./controllers/api/admin/products'))
 router.post('/api/admin/products', require('./controllers/api/admin/products/create'))
 router.delete('/api/admin/products/:id', require('./controllers/api/admin/products/destroy'))
-
-
-
 
 // Error Response
 router.use(function (req, res) {

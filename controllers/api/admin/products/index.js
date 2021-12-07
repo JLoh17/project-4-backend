@@ -9,8 +9,7 @@ const apiProductGetIndex = async function (req, res) {
     return res.json("Unauthorized access")
   }
 
-  const q = query.q || ''
-  const page = query.page || 1
+  const page = Number(query.page)|| 1
   const limit = 10
   const offset = (page - 1) * limit
   const sortField = query.sortField || 'createdAt'
@@ -31,7 +30,7 @@ const apiProductGetIndex = async function (req, res) {
 
   return res.status(200).json({
     product: result.rows,
-    meta: { q, page, limit, offset, totalPages: Math.floor(result.count / limit)}
+    meta: { page, limit, offset, totalPages: Math.ceil(result.count / limit)}
   })
 }
 
