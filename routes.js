@@ -29,14 +29,13 @@ router.delete('/api/my/cart/:id', require('./controllers/api/my/cart/destroy'))
 
 // My Profile's Order History
 router.get('/api/my/profile', require('./controllers/api/my/profile/show'))
-// router.put('/api/my/profile', require('./controllers/api/my/profile/update'))
+router.put('/api/my/profile', require('./controllers/api/my/profile/update'))
 router.get('/api/my/profile/balance', require('./controllers/api/my/profile/balance'))
 
 
 // Admin Orders
 router.get('/api/admin/orders', require('./controllers/api/admin/orders'))
 router.put('/api/admin/orders/:id', require('./controllers/api/admin/orders/update'))
-// router.post('/api/admin/products', require('./controllers/api/admin/products/create'))
 // router.delete('/api/admin/products/:id', require('./controllers/api/admin/products/destroy'))
 
 // Admin Product
