@@ -36,6 +36,8 @@ const apiCreateNewOrderProduct = async function(req, res) {
     }
   })
 
+  await Cart.destroy({ where: { UserId: currentUser.id }})
+
   res.status(201).json({ myOrder: order })
 }
 

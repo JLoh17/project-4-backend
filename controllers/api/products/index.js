@@ -10,7 +10,7 @@ const pageProductsIndex = async function (req, res) {
   const page = Number(query.page) || 1
   const limit = 12
   const offset = (page - 1 ) * limit
-  const CategoryId = Number(query.category) || 0
+  const CategoryId = Number(query.catName) || 0
   const isFeature = query.isFeature || ''
   const isNew = query.isNew || ''
 

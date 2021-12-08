@@ -16,9 +16,7 @@ const pageOrdersIndex = async function (req, res) {
   const order = []
 
   const orderAdminIndex = await Order.findAndCountAll({ // Count all is required for pagination
-    order : [
-      ['createdAt', 'DESC']
-    ],
+    order : [['createdAt', 'DESC']],
     limit,
     offset,
     include: [ // use [] if on the same line
