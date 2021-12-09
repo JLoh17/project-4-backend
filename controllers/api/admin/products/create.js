@@ -9,7 +9,7 @@ const permittedParams = [
   'price',
   'description',
   'isNew',
-  'isFeatured',
+  'isFeature',
   'isDisabled',
   'Images.*.imageURL', // * is an array
   'Images.*.imageURL2', // * is an array
